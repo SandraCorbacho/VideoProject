@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class VideoChanels extends Migration
+class VideoChannels extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class VideoChanels extends Migration
      */
     public function up()
     {
-        Schema::create('video_chanels', function(Blueprint $table)
+        Schema::create('video_channels', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('video_id')->unsigned();
-            $table->integer('chanel_id')->unsigned();
+            $table->integer('channel_id')->unsigned();
             $table->timestamps();
             $table->foreign('video_id')->references('id')->on('videos')->onDelete('cascade');
-            $table->foreign('chanel_id')->references('id')->on('chanels')->onDelete('cascade');
+            $table->foreign('channel_id')->references('id')->on('channels')->onDelete('cascade');
 
         });
     }
@@ -32,6 +32,6 @@ class VideoChanels extends Migration
      */
     public function down()
     {
-        Schema::drop('chanels');
+        Schema::drop('channels');
     }
 }

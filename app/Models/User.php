@@ -32,12 +32,20 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    private function users()
+    {
+        return $this->belongsTo(UserDetails::class, 'user_id', 'id')->get();
+    }
+    private function channel()
+    {
+        return $this->belongsTo(Channels::class, 'user_id', 'id')->get();
+    }
+    private function subscriptions()
+    {
+        return $this->hasMany(Subscriptions::class, 'user_id', 'id')->get();
+    }
 }

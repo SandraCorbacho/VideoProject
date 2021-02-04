@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Chanels extends Migration
+class Channels extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Chanels extends Migration
      */
     public function up()
     {
-        Schema::create('chanels', function(Blueprint $table)
+        Schema::create('channels', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -32,6 +32,6 @@ class Chanels extends Migration
      */
     public function down()
     {
-        Schema::drop('chanels');
+        Schema::drop('channels');
     }
 }

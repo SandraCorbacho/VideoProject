@@ -17,10 +17,10 @@ class Subscriptions extends Migration
         {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('chanel_id')->unsigned();
+            $table->integer('channel_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('chanel_id')->references('id')->on('chanels')->onDelete('cascade');
+            $table->foreign('channel_id')->references('id')->on('channels')->onDelete('cascade');
 
         });
     }
