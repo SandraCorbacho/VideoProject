@@ -11,7 +11,7 @@ class Video extends Model
 
     protected $fillable = ['image','path','title','description','active'];
 
-
+   
     private function comments()
     {
         return $this->hasMany(Comments::class, 'video_id', 'id')->get();
