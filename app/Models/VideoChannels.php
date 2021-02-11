@@ -11,6 +11,6 @@ class VideoChannels extends Model
     protected $fillable = ['video_id', 'channel_id'];
     private function subscription()
     {
-        return $this->belongsTo(subscriptions::class, 'channel_id', 'id')->get();
+        return $this->belongsTo(subscription::class, 'channel_id', 'id')->get();
     }
 }

@@ -14,7 +14,10 @@ class Video extends Model
    
     private function comments()
     {
-        return $this->hasMany(Comments::class, 'video_id', 'id')->get();
+        return $this->hasMany(Comment::class, 'video_id', 'id')->get();
+    }
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id')->get();
     }
     private function channel()
     {

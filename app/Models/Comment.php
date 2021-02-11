@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CommentsDetail extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $fillabe = ['comment_id',  'title', 'description'];
+    protected $fillabe = ['video_id', 'user_id'];
 
-    public function comment(){
+    public function video(){
+        return $this->belongsTo(Videos::class, 'video_id', 'id')->get();
+    }
+    public function detial(){
         return $this->belongsTo(CommentDetail::class, 'comment_id', 'id')->get();
     }
 }
