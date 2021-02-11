@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VideoChannels extends Model
+class VideoChannels extends BaseController
 {
     use HasFactory;
     protected $fillable = ['video_id', 'channel_id'];
