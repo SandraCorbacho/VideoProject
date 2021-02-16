@@ -1,4 +1,11 @@
 <?php
 use App\Http\Controllers\WelcomeController;
 
-Route::get('/',[WelcomeController::class,'index']);
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
+
+Route::get('login',function(){
+    return view('auth.login');
+});

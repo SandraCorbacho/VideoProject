@@ -13,28 +13,17 @@ class Roles extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('roles', function(Blueprint $table)
-        {
-            $table->increments('id')->unsigned();
-            $table->string('role',49);
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
-       
-        DB::table('roles')->insert([
-            'role'=> 'admin',
-            'role'=> 'guest',
-            'role'=>'editor'
-        ]);
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
-        //
+        Schema::dropIfExists('roles');
     }
+
 }
